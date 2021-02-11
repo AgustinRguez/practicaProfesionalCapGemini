@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class ListaDeLaBiblioteca<T> {
 	public String nombre;
-	public ArrayList<Libro> librosB;
-	public ArrayList<Prestamo> prestamosB;
+	public ArrayList<Copia> copiasB = new ArrayList<Copia>();
+	public ArrayList<Libro> librosB = new ArrayList<Libro>();
+	public ArrayList<Prestamo> prestamosB = new ArrayList<Prestamo>();
 	public ListaDeLaBiblioteca(String nombre) {
 		this.nombre = nombre;
-		this.librosB = new ArrayList<>();
-		this.prestamosB = new ArrayList<>();
 	}
 	public String getNombre() {
 		return nombre;

@@ -5,6 +5,12 @@ import java.util.Date;
 public class Multa {
 	private Date fechaInicio;
 	private Date fechaFinal;
+	
+	public Multa(Date fechaInicio,Date fechaFinal) {
+		this.fechaInicio = fechaInicio;
+		this.fechaFinal = fechaFinal;
+	}
+	
 	public Date getFechaInicio() {
 		return fechaInicio;
 	}

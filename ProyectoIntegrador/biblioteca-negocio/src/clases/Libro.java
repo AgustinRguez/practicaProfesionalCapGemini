@@ -2,6 +2,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import clases.Copia.EstadoCopia;
+
 public class Libro {
 	private String titulo;
 	private tipoLibro tipo;
@@ -70,6 +72,21 @@ public class Libro {
 	public void agregarCopias(Copia parametroCopias) {
 		this.copias.add(parametroCopias);
 	}
-	
+	public Copia buscarCopiaDeLaListaDeLibros() {
+		Copia copiaABuscar = null;
+		Copia auxiliarCopias;
+		int indice = 0;
+		while (copiaABuscar == null && indice < this.copias.size()) 
+		{
+			auxiliarCopias = this.copias.get(indice);
+			
+			if (auxiliarCopias.getEstado() == EstadoCopia.BIBLIOTECA) 
+			{
+				copiaABuscar = auxiliarCopias;
+			}
+			indice++;
+		}
+		return copiaABuscar;
+	}
 
 } 

@@ -6,6 +6,7 @@ public class Lector extends Persona {
 	private int nSocio;
 	private String telefono;
 	private String direccion;
+	private Multa multas;
 
 	public Lector(int nSocio, String nombre, String telefono,String direccion) {
 		super(nombre);
@@ -46,8 +47,17 @@ public class Lector extends Persona {
 
 	}
 	@SuppressWarnings("unused")
-	private int multar(int dias) {
-		return dias;
+	private void multar() {
+		 this.multas = new Multa(new Date(),new Date()); 
 	}
+
+	public Multa getMultas() {
+		return multas;
+	}
+
+	public void setMultas(Multa multas) {
+		this.multas = multas;
+	}
+	
 
 }
