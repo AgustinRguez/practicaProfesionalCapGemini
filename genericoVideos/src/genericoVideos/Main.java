@@ -1,5 +1,10 @@
 package genericoVideos;
 
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+
+>>>>>>> aab13be3abab8a6fd5dbbfb44ee0280bce21564c
 public class Main {
 
 	public static void main(String[] args) {
