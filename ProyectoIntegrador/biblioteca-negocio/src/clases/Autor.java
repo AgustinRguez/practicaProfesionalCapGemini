@@ -33,4 +33,10 @@ public class Autor extends Persona{
 		this.libros = libros;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor [nacionalidad=" + nacionalidad + ", fechaNac=" + fechaNac + ", libros=" + libros + "]";
+	}
+	
+
 }

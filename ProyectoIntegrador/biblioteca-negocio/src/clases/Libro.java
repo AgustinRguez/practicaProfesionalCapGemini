@@ -69,24 +69,14 @@ public class Libro {
 	public void setCopias(ArrayList<Copia> copias) {
 		this.copias = copias;
 	}
+	
+	@Override
+	public String toString() {
+		return "Libro [titulo=" + titulo + ", tipo=" + tipo + ", editorial=" + editorial + ", anyo=" + anyo + ", autor="
+				+ autor + ", copias=" + copias + "]";
+	}
 	public void agregarCopias(Copia parametroCopias) {
 		this.copias.add(parametroCopias);
-	}
-	public Copia buscarCopiaDeLaListaDeLibros() {
-		Copia copiaABuscar = null;
-		Copia auxiliarCopias;
-		int indice = 0;
-		while (copiaABuscar == null && indice < this.copias.size()) 
-		{
-			auxiliarCopias = this.copias.get(indice);
-			
-			if (auxiliarCopias.getEstado() == EstadoCopia.BIBLIOTECA) 
-			{
-				copiaABuscar = auxiliarCopias;
-			}
-			indice++;
-		}
-		return copiaABuscar;
 	}
 
 } 

@@ -33,6 +33,38 @@ public class Main {
 		Copia copiaDosLibroDos = new Copia(2, EstadoCopia.BIBLIOTECA, libroDos);
 		Copia copiaTresLibroDos = new Copia(2, EstadoCopia.BIBLIOTECA, libroDos);
 		
+		Copia copiaLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
+		Copia copiaDosLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
+		Copia copiaTresLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
+		
+		Copia copiaLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
+		Copia copiaDosLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
+		Copia copiaTresLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
+		
+		Copia copiaLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
+		Copia copiaDosLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
+		Copia copiaTresLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
+		
+		Copia copiaLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
+		Copia copiaDosLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
+		Copia copiaTresLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
+		
+		Copia copiaLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
+		Copia copiaDosLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
+		Copia copiaTresLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
+		
+		Copia copiaLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
+		Copia copiaDosLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
+		Copia copiaTresLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
+		
+		Copia copiaLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
+		Copia copiaDosLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
+		Copia copiaTresLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
+		
+		Copia copiaLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
+		Copia copiaDosLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
+		Copia copiaTresLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
+		
 		ListaDeLaBiblioteca<Libro> biblioteca = new ListaDeLaBiblioteca<>("Biblioteca nueva");
 		biblioteca.librosB.add(libroUno);
 		biblioteca.copiasB.add(copiaLibroUno);
@@ -43,6 +75,49 @@ public class Main {
 		biblioteca.copiasB.add(copiaLibroDos);
 		biblioteca.copiasB.add(copiaDosLibroDos);
 		biblioteca.copiasB.add(copiaTresLibroDos);
+		
+		biblioteca.librosB.add(libroTres);
+		biblioteca.copiasB.add(copiaLibroTres);
+		biblioteca.copiasB.add(copiaDosLibroTres);
+		biblioteca.copiasB.add(copiaTresLibroTres);
+		
+		biblioteca.librosB.add(libroCuatro);
+		biblioteca.copiasB.add(copiaLibroCuatro);
+		biblioteca.copiasB.add(copiaDosLibroCuatro);
+		biblioteca.copiasB.add(copiaTresLibroCuatro);
+		
+		biblioteca.librosB.add(libroCinco);
+		biblioteca.copiasB.add(copiaLibroCinco);
+		biblioteca.copiasB.add(copiaDosLibroCinco);
+		biblioteca.copiasB.add(copiaTresLibroCinco);
+		
+		biblioteca.librosB.add(libroSeis);
+		biblioteca.copiasB.add(copiaLibroSeis);
+		biblioteca.copiasB.add(copiaDosLibroSeis);
+		biblioteca.copiasB.add(copiaTresLibroSeis);
+		
+		biblioteca.librosB.add(libroSiete);
+		biblioteca.copiasB.add(copiaLibroSiete);
+		biblioteca.copiasB.add(copiaDosLibroSiete);
+		biblioteca.copiasB.add(copiaTresLibroSiete);
+		
+		biblioteca.librosB.add(libroOcho);
+		biblioteca.copiasB.add(copiaLibroOcho);
+		biblioteca.copiasB.add(copiaDosLibroOcho);
+		biblioteca.copiasB.add(copiaTresLibroOcho);
+		
+		biblioteca.librosB.add(libroNueve);
+		biblioteca.copiasB.add(copiaLibroNueve);
+		biblioteca.copiasB.add(copiaDosLibroNueve);
+		biblioteca.copiasB.add(copiaTresLibroNueve);
+		
+		biblioteca.librosB.add(libroDiez);
+		biblioteca.copiasB.add(copiaLibroDiez);
+		biblioteca.copiasB.add(copiaDosLibroDiez);
+		biblioteca.copiasB.add(copiaTresLibroDiez);
+		
+		System.out.println(biblioteca.librosB);
+		
 	}
 
 }

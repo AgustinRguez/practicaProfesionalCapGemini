@@ -40,5 +40,10 @@ public class Copia {
 	public void setLibroCopia(Libro libroCopia) {
 		this.libroCopia = libroCopia;
 	}
+	@Override
+	public String toString() {
+		return "Copia [id=" + id + ", estado=" + estado + ", libroCopia=" + libroCopia + "]";
+	}
+	
 
 }

@@ -28,5 +28,8 @@ public class ListaDeLaBiblioteca<T> {
 	public void setPrestamosB(ArrayList<Prestamo> prestamosB) {
 		this.prestamosB = prestamosB;
 	}
+	/*public void prestarLibro(Lector lector, String nombreLibro) {
+		
+	}*/
 
 }
