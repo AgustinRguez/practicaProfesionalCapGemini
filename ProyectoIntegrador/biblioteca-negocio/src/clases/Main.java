@@ -1,5 +1,6 @@
 package clases;
 
+
 import java.util.Date;
 
 import clases.Copia.EstadoCopia;
@@ -8,8 +9,15 @@ import clases.Libro.tipoLibro;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		ListaDeLaBiblioteca<Lector> bibliotecaDeLectores = new ListaDeLaBiblioteca<Lector>("Biblioteca de Lectores");
+		ListaDeLaBiblioteca<Libro> bibliotecaDeLibros = new ListaDeLaBiblioteca<Libro>("Biblioteca nueva");
+		ListaDeLaBiblioteca<Copia> bibliotecaDeCopias = new ListaDeLaBiblioteca<Copia>("Biblioteca de Copias");
+		
 		Lector lectorUno = new Lector(10, "Tito", "42087402", "calle falsa 123");
 		Lector lectorDos = new Lector(20, "Eugenio", "42097894", "calle falsa 10000");
+		Lector lectorTres = new Lector(15, "Agustin", "42287691", "calle nose");
+		
 		
 		Autor autorUno = new Autor("Luis", "Argentina", new Date());
 		Autor autorDos = new Autor("Alberto", "Brasil", new Date());
@@ -26,98 +34,81 @@ public class Main {
 		Libro libroDiez = new Libro("Titulo10", tipoLibro.TEATRO, "EditorialDiez" , 2020, autorUno);
 		
 		Copia copiaLibroUno = new Copia(1, EstadoCopia.BIBLIOTECA, libroUno);
-		Copia copiaDosLibroUno = new Copia(1, EstadoCopia.BIBLIOTECA, libroUno);
-		Copia copiaTresLibroUno = new Copia(1, EstadoCopia.BIBLIOTECA, libroUno);
 		
 		Copia copiaLibroDos = new Copia(2, EstadoCopia.BIBLIOTECA, libroDos);
-		Copia copiaDosLibroDos = new Copia(2, EstadoCopia.BIBLIOTECA, libroDos);
-		Copia copiaTresLibroDos = new Copia(2, EstadoCopia.BIBLIOTECA, libroDos);
+			
+		Copia copiaLibroTres = new Copia(3, EstadoCopia.BIBLIOTECA, libroTres);
 		
-		Copia copiaLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
-		Copia copiaDosLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
-		Copia copiaTresLibroTres = new Copia(1, EstadoCopia.BIBLIOTECA, libroTres);
+		Copia copiaLibroCuatro = new Copia(4, EstadoCopia.BIBLIOTECA, libroCuatro);
 		
-		Copia copiaLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
-		Copia copiaDosLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
-		Copia copiaTresLibroCuatro = new Copia(1, EstadoCopia.BIBLIOTECA, libroCuatro);
+		Copia copiaLibroCinco = new Copia(5, EstadoCopia.BIBLIOTECA, libroCinco);
+				
+		Copia copiaLibroSeis = new Copia(6, EstadoCopia.BIBLIOTECA, libroSeis);
+				
+		Copia copiaLibroSiete = new Copia(7, EstadoCopia.BIBLIOTECA, libroSiete);
+				
+		Copia copiaLibroOcho = new Copia(8, EstadoCopia.BIBLIOTECA, libroOcho);	
 		
-		Copia copiaLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
-		Copia copiaDosLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
-		Copia copiaTresLibroCinco = new Copia(1, EstadoCopia.BIBLIOTECA, libroCinco);
+		Copia copiaLibroNueve = new Copia(9, EstadoCopia.BIBLIOTECA, libroNueve);
+			
+		Copia copiaLibroDiez = new Copia(10, EstadoCopia.BIBLIOTECA, libroDiez);
+			
+	
+		bibliotecaDeLibros.librosB.add(libroUno);
+		bibliotecaDeCopias.copiasB.add(copiaLibroUno);		
 		
-		Copia copiaLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
-		Copia copiaDosLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
-		Copia copiaTresLibroSeis = new Copia(1, EstadoCopia.BIBLIOTECA, libroSeis);
+		bibliotecaDeLibros.librosB.add(libroDos);
+		bibliotecaDeCopias.copiasB.add(copiaLibroDos);
 		
-		Copia copiaLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
-		Copia copiaDosLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
-		Copia copiaTresLibroSiete = new Copia(2, EstadoCopia.BIBLIOTECA, libroSiete);
+		bibliotecaDeLibros.librosB.add(libroTres);
+		bibliotecaDeCopias.copiasB.add(copiaLibroTres);
+			
+		bibliotecaDeLibros.librosB.add(libroCuatro);
+		bibliotecaDeCopias.copiasB.add(copiaLibroCuatro);
 		
-		Copia copiaLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
-		Copia copiaDosLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
-		Copia copiaTresLibroOcho = new Copia(1, EstadoCopia.BIBLIOTECA, libroOcho);
+		bibliotecaDeLibros.librosB.add(libroCinco);
+		bibliotecaDeCopias.copiasB.add(copiaLibroCinco);	
 		
-		Copia copiaLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
-		Copia copiaDosLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
-		Copia copiaTresLibroNueve = new Copia(1, EstadoCopia.BIBLIOTECA, libroNueve);
+		bibliotecaDeLibros.librosB.add(libroSeis);
+		bibliotecaDeCopias.copiasB.add(copiaLibroSeis);
 		
-		Copia copiaLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
-		Copia copiaDosLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
-		Copia copiaTresLibroDiez = new Copia(1, EstadoCopia.BIBLIOTECA, libroDiez);
+		bibliotecaDeLibros.librosB.add(libroSiete);
+		bibliotecaDeCopias.copiasB.add(copiaLibroSiete);
 		
-		ListaDeLaBiblioteca<Libro> biblioteca = new ListaDeLaBiblioteca<>("Biblioteca nueva");
-		biblioteca.librosB.add(libroUno);
-		biblioteca.copiasB.add(copiaLibroUno);
-		biblioteca.copiasB.add(copiaDosLibroUno);
-		biblioteca.copiasB.add(copiaTresLibroUno);
+		bibliotecaDeLibros.librosB.add(libroOcho);
+		bibliotecaDeCopias.copiasB.add(copiaLibroOcho);
+
+		bibliotecaDeLibros.librosB.add(libroNueve);
+		bibliotecaDeCopias.copiasB.add(copiaLibroNueve);
 		
-		biblioteca.librosB.add(libroDos);
-		biblioteca.copiasB.add(copiaLibroDos);
-		biblioteca.copiasB.add(copiaDosLibroDos);
-		biblioteca.copiasB.add(copiaTresLibroDos);
+		bibliotecaDeLibros.librosB.add(libroDiez);
+		bibliotecaDeCopias.copiasB.add(copiaLibroDiez);
+	
 		
-		biblioteca.librosB.add(libroTres);
-		biblioteca.copiasB.add(copiaLibroTres);
-		biblioteca.copiasB.add(copiaDosLibroTres);
-		biblioteca.copiasB.add(copiaTresLibroTres);
+		bibliotecaDeLectores.lectorB.add(lectorUno);
+		bibliotecaDeLectores.lectorB.add(lectorDos);
+		bibliotecaDeLectores.lectorB.add(lectorTres);
+		//System.out.println(biblioteca.librosB);
+		//System.out.println(biblioteca.copiasB);
 		
-		biblioteca.librosB.add(libroCuatro);
-		biblioteca.copiasB.add(copiaLibroCuatro);
-		biblioteca.copiasB.add(copiaDosLibroCuatro);
-		biblioteca.copiasB.add(copiaTresLibroCuatro);
+		//System.out.println(bibliotecaDeCopias.buscarCopiaPorId(bibliotecaDeCopias.copiasB, 3));
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
+		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 3);
+		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 2);
+		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 1);
 		
-		biblioteca.librosB.add(libroCinco);
-		biblioteca.copiasB.add(copiaLibroCinco);
-		biblioteca.copiasB.add(copiaDosLibroCinco);
-		biblioteca.copiasB.add(copiaTresLibroCinco);
+		bibliotecaDeLectores.alquilarLibro(lectorDos.getnSocio(), 5);
+		bibliotecaDeLectores.alquilarLibro(lectorDos.getnSocio(), 6);
 		
-		biblioteca.librosB.add(libroSeis);
-		biblioteca.copiasB.add(copiaLibroSeis);
-		biblioteca.copiasB.add(copiaDosLibroSeis);
-		biblioteca.copiasB.add(copiaTresLibroSeis);
+		System.out.println(bibliotecaDeLectores.buscarLectorPorId(bibliotecaDeLectores.lectorB,15));
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
+		System.out.println(bibliotecaDeLectores.buscarLectorPorId(bibliotecaDeLectores.lectorB,20));
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
+		System.out.println(bibliotecaDeCopias.stockDeLibrosOCopias());
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
 		
-		biblioteca.librosB.add(libroSiete);
-		biblioteca.copiasB.add(copiaLibroSiete);
-		biblioteca.copiasB.add(copiaDosLibroSiete);
-		biblioteca.copiasB.add(copiaTresLibroSiete);
-		
-		biblioteca.librosB.add(libroOcho);
-		biblioteca.copiasB.add(copiaLibroOcho);
-		biblioteca.copiasB.add(copiaDosLibroOcho);
-		biblioteca.copiasB.add(copiaTresLibroOcho);
-		
-		biblioteca.librosB.add(libroNueve);
-		biblioteca.copiasB.add(copiaLibroNueve);
-		biblioteca.copiasB.add(copiaDosLibroNueve);
-		biblioteca.copiasB.add(copiaTresLibroNueve);
-		
-		biblioteca.librosB.add(libroDiez);
-		biblioteca.copiasB.add(copiaLibroDiez);
-		biblioteca.copiasB.add(copiaDosLibroDiez);
-		biblioteca.copiasB.add(copiaTresLibroDiez);
-		
-		System.out.println(biblioteca.librosB);
-		
+		//lectorTres.devolver(copiaLibroTres);
+		System.out.println(bibliotecaDeLectores.buscarLectorPorId(bibliotecaDeLectores.lectorB,15));
 	}
 
 }

@@ -44,6 +44,37 @@ public class Copia {
 	public String toString() {
 		return "Copia [id=" + id + ", estado=" + estado + ", libroCopia=" + libroCopia + "]";
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((libroCopia == null) ? 0 : libroCopia.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Copia other = (Copia) obj;
+		if (estado != other.estado)
+			return false;
+		if (id != other.id)
+			return false;
+		if (libroCopia == null) {
+			if (other.libroCopia != null)
+				return false;
+		} else if (!libroCopia.equals(other.libroCopia))
+			return false;
+		return true;
+	}
+
+	
 	
 
 }

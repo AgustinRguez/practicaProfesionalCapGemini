@@ -3,16 +3,28 @@ package clases;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Autor extends Persona{
+public class Autor {
+	private String nombre;
 	private String nacionalidad;
 	private Date fechaNac;
-	private ArrayList<Libro> libros;
+	private ArrayList<Libro> libros= new ArrayList<>();
 	public Autor(String nombre, String nacionalidad, Date fechaNac) {
-		super(nombre);
+		
+		this.nombre = nombre;
 		this.nacionalidad = nacionalidad;
 		this.fechaNac = fechaNac;
-		this.libros = new ArrayList<>();
 	}
+	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 
 	public String getNacionalidad() {
 		return nacionalidad;
@@ -35,8 +47,9 @@ public class Autor extends Persona{
 
 	@Override
 	public String toString() {
-		return "Autor [nacionalidad=" + nacionalidad + ", fechaNac=" + fechaNac + ", libros=" + libros + "]";
+		return "Autor [nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", fechaNac=" + fechaNac + ", libros="
+				+ libros + "]";
 	}
-	
+
 
 }
