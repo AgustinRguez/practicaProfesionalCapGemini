@@ -71,12 +71,12 @@ public class ListaDeLaBiblioteca<T> {
 	}
 	
 	public void modificarEstadoDeCopia(int id, EstadoCopia estado) {
-		List<Copia> arrayCopia = new ArrayList<Copia>();
+		ArrayList<Copia> arrayCopia = new ArrayList<Copia>();
 		Iterator<Copia> itCopia = copiasB.iterator();
 		
 		while(itCopia.hasNext()) {
 			Copia auxCopia = itCopia.next();
-			if(auxCopia.getId() == id) {
+			if(auxCopia.getId() == id && auxCopia.getEstado()== EstadoCopia.BIBLIOTECA) {
 				auxCopia.setEstado(estado);
 			}
 			arrayCopia.add(auxCopia);
@@ -90,25 +90,44 @@ public class ListaDeLaBiblioteca<T> {
 			lectorAux.agregarPrestamos(new Prestamo(buscarCopiaPorId(copiasB, id)));
 			modificarEstadoDeCopia(id, EstadoCopia.PRESTADO);	
 		}
-		else {
-			try {
-				if(lectorAux.getMultas()!=null) {
-					SimpleDateFormat dateFormat = lectorAux.getMultas().dateFormat;
-					throw new RuntimeException("El lector "+lectorAux.getNombre() + " no podra retirar libros hasta el " + dateFormat.format(lectorAux.getMultas().getFechaFinal()));
-				}
-			} catch (RuntimeException e) {
-				System.out.println(e);
-			}
-		}
+		
 	}
-	public ArrayList<Copia> stockDeLibrosOCopias() {
+	public ArrayList<Copia> stockDeCopias() {
 		Copia auxiliarCopia=null;
 		ArrayList<Copia> arrayCopias = new ArrayList<Copia>();
 		Iterator<Copia> iteradorCopias = copiasB.iterator();
 		while(iteradorCopias.hasNext()) {
 		auxiliarCopia = iteradorCopias.next();
 		arrayCopias.add(auxiliarCopia);
+		System.out.println("Stock de Copias: \n"+auxiliarCopia);
 		}
 		return arrayCopias;
 	}
+	public ArrayList<Libro> stockDeLibros() {
+		Libro auxiliarLibro=null;
+		ArrayList<Libro> arrayLibros = new ArrayList<Libro>();
+		Iterator<Libro> iteradorLibros = librosB.iterator();
+		while(iteradorLibros.hasNext()) {
+		auxiliarLibro = iteradorLibros.next();
+		arrayLibros.add(auxiliarLibro);
+		System.out.println("Stock de Libros: \n"+auxiliarLibro);
+		}
+		return arrayLibros;
+	}
+	
+	public ArrayList<Copia> obtenerPrestamosDeLectores(){
+		Copia auxiliarCopia = null;
+		ArrayList<Copia> arrayCopia = new ArrayList<Copia>();
+		Iterator<Copia> iteradorCopia = copiasB.iterator();
+		while(iteradorCopia.hasNext()) {
+			auxiliarCopia = iteradorCopia.next();
+			if(auxiliarCopia != null && auxiliarCopia.getEstado() == EstadoCopia.PRESTADO)
+			{		
+				arrayCopia.add(auxiliarCopia);
+				System.out.println("Prestamos activos: \n" + auxiliarCopia);
+			}		
+		}
+		return arrayCopia;
+	}
+
 }

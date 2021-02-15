@@ -12,7 +12,7 @@ public class Libro {
 	private Autor autor;
 	private ArrayList<Copia> copias = new ArrayList<Copia>();
 
-	enum tipoLibro{
+	public enum tipoLibro{
 		NOVELA("N"), TEATRO("T"), POESIA("P"), ENSAYO("E");
 
 		private tipoLibro(String abreviatura) {

@@ -81,10 +81,15 @@ public class Lector {
 		}
 	}*/
 	public boolean prestar (int nSocioParam, Date fechaParaPrestar) {
+		boolean verificar = false;
 		if(multas == null && prestamos.size()<3) {
-			return true;
+			verificar = true;
 		}
-		return false;
+		else if(multas == null || prestamos.size()>=4) {
+			System.out.println("Error, mas de 3 copias cargadas");
+			verificar = false;
+		}
+		return verificar;
 	}
 	@SuppressWarnings("unused")
 	private void multar() {

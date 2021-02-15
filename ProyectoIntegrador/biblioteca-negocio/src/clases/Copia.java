@@ -4,7 +4,7 @@ public class Copia {
 	private int id;
 	private EstadoCopia estado;
 	private Libro libroCopia;
-	enum EstadoCopia{
+	public enum EstadoCopia{
 		PRESTADO("P"), RETRASO("R"), BIBLIOTECA("B"), REPARACION("R");
 
 		private EstadoCopia(String abreviatura) {

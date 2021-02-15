@@ -51,11 +51,12 @@ public class Main {
 		
 		Copia copiaLibroNueve = new Copia(9, EstadoCopia.BIBLIOTECA, libroNueve);
 			
-		Copia copiaLibroDiez = new Copia(10, EstadoCopia.BIBLIOTECA, libroDiez);
-			
-	
+		Copia copiaLibroDiez = new Copia(10, EstadoCopia.BIBLIOTECA, libroDiez);			
+		Copia copiaDosLibroDiez = new Copia(10, EstadoCopia.PRESTADO, libroDiez); 
+		
 		bibliotecaDeLibros.librosB.add(libroUno);
-		bibliotecaDeCopias.copiasB.add(copiaLibroUno);		
+		bibliotecaDeCopias.copiasB.add(copiaLibroUno);	
+		bibliotecaDeCopias.copiasB.add(copiaLibroUno);
 		
 		bibliotecaDeLibros.librosB.add(libroDos);
 		bibliotecaDeCopias.copiasB.add(copiaLibroDos);
@@ -83,6 +84,7 @@ public class Main {
 		
 		bibliotecaDeLibros.librosB.add(libroDiez);
 		bibliotecaDeCopias.copiasB.add(copiaLibroDiez);
+		bibliotecaDeCopias.copiasB.add(copiaDosLibroDiez);
 	
 		
 		bibliotecaDeLectores.lectorB.add(lectorUno);
@@ -96,6 +98,7 @@ public class Main {
 		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 3);
 		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 2);
 		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 1);
+
 		
 		bibliotecaDeLectores.alquilarLibro(lectorDos.getnSocio(), 5);
 		bibliotecaDeLectores.alquilarLibro(lectorDos.getnSocio(), 6);
@@ -104,11 +107,14 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------------------------------");
 		System.out.println(bibliotecaDeLectores.buscarLectorPorId(bibliotecaDeLectores.lectorB,20));
 		System.out.println("-------------------------------------------------------------------------------------------------------------");
-		System.out.println(bibliotecaDeCopias.stockDeLibrosOCopias());
+		bibliotecaDeCopias.stockDeCopias();
 		System.out.println("-------------------------------------------------------------------------------------------------------------");
 		
-		//lectorTres.devolver(copiaLibroTres);
-		System.out.println(bibliotecaDeLectores.buscarLectorPorId(bibliotecaDeLectores.lectorB,15));
+		bibliotecaDeLectores.alquilarLibro(lectorTres.getnSocio(), 8);
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
+		bibliotecaDeLibros.stockDeLibros();
+		System.out.println("-------------------------------------------------------------------------------------------------------------");
+		bibliotecaDeCopias.obtenerPrestamosDeLectores();
 	}
 
 }
