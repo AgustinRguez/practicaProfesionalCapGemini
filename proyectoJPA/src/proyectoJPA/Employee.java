@@ -2,9 +2,12 @@ package proyectoJPA;
 
 import java.io.Serializable;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,8 +16,11 @@ import javax.persistence.Table;
 @Table (name = "empleados")
 public class Employee implements Serializable{
 	
-	@Column(name= "Id") @Id
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name= "Id")
 	private long id;
+	
 	@Column(name = "Nombre")
 	private String nombre;
 	

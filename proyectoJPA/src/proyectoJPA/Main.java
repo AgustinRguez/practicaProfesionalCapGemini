@@ -38,16 +38,16 @@ public class Main {
 		
 		EntityTransaction tran = manager.getTransaction();
 		tran.begin();
-		//manager.persist(empleados);
+		/*manager.persist(empleados);
 		manager.persist(empleadosDos);
-		manager.persist(empleadosTres);
+		manager.persist(empleadosTres);*/
 		tran.commit();
 
 		
 		List<Employee> empleadoList = manager.createQuery("FROM Employee").getResultList(); //hacer un select
 		for (Employee employee : empleadoList) {
 			System.out.println("\nEsta " +employee.toString()); 
-			manager.close();
+			manager.close(); 
 		}
 				
 	
