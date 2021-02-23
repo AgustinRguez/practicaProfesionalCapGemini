@@ -43,12 +43,12 @@ public class Copia implements Serializable{
 
 		private String abreviatura;
 	}
-	public Copia(EstadoCopia estado, Libro libroCopia) {
+	/*public Copia(EstadoCopia estado, Libro libroCopia) {
 		super();
 		//this.id = id;
 		this.estado = estado;
 		//this.libroCopia = libroCopia;
-	}
+	}*/
 	public Copia() {
 		super();
 	}

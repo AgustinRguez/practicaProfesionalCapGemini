@@ -14,27 +14,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-@Entity
-@Table (name = "libro") 
+
 public class Libro {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="libroId")
+	
 	private long Id;
-	@Column (name = "Titulo")
+	
 	private String titulo;
 	
-	@Column (name = "Tipo")
+	
 	private tipoLibro tipo;
 	
-	@Column 
+	
 	private String editorial;
 	
-	@Column 
+	
 	private int anyo;
 	
-	@ManyToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name = "autorId", referencedColumnName="autorId")
 	private Autor autor;
 	
 	private ArrayList<Copia> copias = new ArrayList<Copia>();

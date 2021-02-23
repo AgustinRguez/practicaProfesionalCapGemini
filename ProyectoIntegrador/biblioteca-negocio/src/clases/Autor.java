@@ -13,27 +13,25 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+
 public class Autor implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1304525234515458394L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "autorId")
+	
 	private long id;
-	@Column
+	
 	private String nombre;
 	
-	@Column
+	
 	private String nacionalidad;
 	
-	@Column
+	
 	private Date fechaNac;
 	
-	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+	
 	private List<Libro> libros= new ArrayList<Libro>();
 	
 	public Autor(String nombre, String nacionalidad, Date fechaNac) {

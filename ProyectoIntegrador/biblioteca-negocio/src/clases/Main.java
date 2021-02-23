@@ -138,17 +138,11 @@ public class Main {
 		Libro libroUno = new Libro();
 		
 		Copia copiaUno = new Copia();
-		
-		Multa multa = new Multa();
-		
-		Prestamo prestamoUno = new Prestamo();
+
 		
 		Date fechaInicioMulta = dateFormat.parse("10-02-2009");
 		Date fechaFinalMulta = dateFormat.parse("10-03-2009");
 		Date nacimientoParaAutor = dateFormat.parse("19-06-1996");
-		
-		multa.setFechaInicio(fechaInicioMulta);
-		multa.setFechaFinal(fechaFinalMulta);
 		
 		lectorUno.setNombre("Agustin");
 		lectorUno.setTelefono("42087402");
@@ -167,15 +161,7 @@ public class Main {
 		libroUno.setTitulo("El señor de los titulos");
 		
 		copiaUno.setEstado(EstadoCopia.BIBLIOTECA);
-		//copiaUno.setLibroCopia(libroUno);
 		
-		prestamoUno.setCopias(copiaUno);
-		prestamoUno.setFechaInicio(fechaInicioMulta);
-		prestamoUno.setFechaFin(fechaFinalMulta);
-		prestamoUno.setLectorDePrestamo(lectorUno);
-		
-		lectorUno.agregarPrestamos(prestamoUno);
-		lectorUno.setMultas(multa);
 		
 		EntityManagerFactory miFactory = Persistence.createEntityManagerFactory("ejsHibernate");
 		EntityManager manager = miFactory.createEntityManager();

@@ -11,25 +11,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-@Entity
+
 public class Prestamo {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="prestamoId")
+	
 	private long Id;
-	@Column
+	
 	private Date fechaInicio;
-	@Column
+	
 	private Date fechaFin;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "IdCopia", referencedColumnName="IdCopia")
+	
 	private Copia copias;
-	@Column
+	
 	private int maxDias=30;
-	@Column
+	
 	private Date diaSacado = new Date();
-	@ManyToOne()
-	@JoinColumn(name = "nSocio")
+	
 	private Lector lector;
 	
 	public Prestamo(Copia copias) {

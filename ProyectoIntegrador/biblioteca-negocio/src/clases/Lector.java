@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
+
 
 public class Lector implements Serializable{
 	/**
@@ -27,25 +27,21 @@ public class Lector implements Serializable{
 	 */
 	private static final long serialVersionUID = -4202799706091486525L;
 
-	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	@Column(name = "nSocio")
+	
 	private long nSocio;
 	
-	@Column
+	
 	private String nombre;
 	
-	@Column
+	
 	private String telefono;
 	
-	@Column
+
 	private String direccion;
 	
-	@OneToOne(mappedBy = "lector", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "multaId")
 	private Multa multas;
 	
-	@OneToMany(targetEntity = Prestamo.class, mappedBy = "lector", fetch = FetchType.EAGER)
+	
 	private List<Prestamo> prestamos = new ArrayList<Prestamo>();
 	
 	public Lector(String nombre, String telefono,String direccion) {

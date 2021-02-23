@@ -17,20 +17,17 @@ import javax.persistence.OneToOne;
 
 import javax.persistence.Id;
 
-@Entity
+
 public class Multa {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="multaId")
+	
 	private long Id;
-	@Column
+	
 	private Date fechaInicio;
-	@Column
+	
 	private Date fechaFinal;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "nSocio")
+	
 	private Lector lector;
 	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
