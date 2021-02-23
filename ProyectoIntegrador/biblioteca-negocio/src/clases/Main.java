@@ -181,9 +181,7 @@ public class Main {
 		EntityManager manager = miFactory.createEntityManager();
 		EntityTransaction tran = manager.getTransaction();
 		tran.begin();
-		manager.persist(lectorUno);
-		manager.persist(prestamoUno);
-		manager.persist(multa);
+		manager.persist(copiaUno);
 		tran.commit();
 		//manager.close();
 		

@@ -58,7 +58,7 @@ public class Libro {
 		this.tipo = tipo;
 		this.editorial = editorial;
 		this.anyo = anyo;
-		this.autor = autor;
+		//this.autor = autor;
 	}
 	public Libro() {
 		super();
@@ -99,8 +99,57 @@ public class Libro {
 	public void setCopias(ArrayList<Copia> copias) {
 		this.copias = copias;
 	}
-	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (Id ^ (Id >>> 32));
+		result = prime * result + anyo;
+		result = prime * result + ((copias == null) ? 0 : copias.hashCode());
+		result = prime * result + ((editorial == null) ? 0 : editorial.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Libro other = (Libro) obj;
+		if (Id != other.Id)
+			return false;
+		if (anyo != other.anyo)
+			return false;
+		if (copias == null) {
+			if (other.copias != null)
+				return false;
+		} else if (!copias.equals(other.copias))
+			return false;
+		if (editorial == null) {
+			if (other.editorial != null)
+				return false;
+		} else if (!editorial.equals(other.editorial))
+			return false;
+		if (tipo != other.tipo)
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Libro [Id=" + Id + ", titulo=" + titulo + ", tipo=" + tipo + ", editorial=" + editorial + ", anyo="
+				+ anyo + ", copias=" + copias + "]";
+	}
+	
+	/*@Override
 	public String toString() {
 		return "Libro [titulo=" + titulo + ", tipo=" + tipo + ", editorial=" + editorial + ", anyo=" + anyo + ", autor="
 				+ autor + ", copias=" + copias + "]";
@@ -154,7 +203,7 @@ public class Libro {
 		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
-	}
+	}*/
 	
 	
 
