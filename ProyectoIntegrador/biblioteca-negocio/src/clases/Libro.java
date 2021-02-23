@@ -1,16 +1,44 @@
 package clases;
 
-import java.util.ArrayList;
+import java.util.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import clases.Copia.EstadoCopia;
 
+@Entity
+@Table (name = "libro") 
 public class Libro {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="libroId")
+	private long Id;
+	@Column (name = "Titulo")
 	private String titulo;
+	
+	@Column (name = "Tipo")
 	private tipoLibro tipo;
+	
+	@Column 
 	private String editorial;
+	
+	@Column 
 	private int anyo;
+	
+	@ManyToOne (cascade=CascadeType.ALL)
+	@JoinColumn(name = "autorId", referencedColumnName="autorId")
 	private Autor autor;
+	
 	private ArrayList<Copia> copias = new ArrayList<Copia>();
+	
 
 	public enum tipoLibro{
 		NOVELA("N"), TEATRO("T"), POESIA("P"), ENSAYO("E");
@@ -31,6 +59,9 @@ public class Libro {
 		this.editorial = editorial;
 		this.anyo = anyo;
 		this.autor = autor;
+	}
+	public Libro() {
+		super();
 	}
 	public String getTitulo() {
 		return titulo;

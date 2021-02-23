@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import clases.Copia.EstadoCopia;
 
 public class ListaDeLaBiblioteca<T> {
@@ -129,5 +133,18 @@ public class ListaDeLaBiblioteca<T> {
 		}
 		return arrayCopia;
 	}
-
+	public void pushLectores (Lector e) {
+		
+		ArrayList<Lector> tmp = new ArrayList<Lector>();
+		
+		Iterator<Lector> it = lectorB.iterator();
+		
+		while (it.hasNext()) {
+			Lector pe = it.next();
+			tmp.add(pe);
+		}
+		tmp.add(e);
+		this.lectorB.clear();
+		this.lectorB.addAll(tmp);
+	}
 }

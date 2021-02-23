@@ -1,28 +1,61 @@
 package clases;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-public class Lector {
-	private int nSocio;
-	private String nombre;
-	private String telefono;
-	private String direccion;
-	private Multa multas;
-	private ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
+@Entity
+public class Lector implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4202799706091486525L;
+
+	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
+	@Column(name = "nSocio")
+	private long nSocio;
 	
-	public Lector(int nSocio,String nombre, String telefono,String direccion) {
+	@Column
+	private String nombre;
+	
+	@Column
+	private String telefono;
+	
+	@Column
+	private String direccion;
+	
+	@OneToOne(mappedBy = "lector", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@JoinColumn(name = "multaId")
+	private Multa multas;
+	
+	@OneToMany(targetEntity = Prestamo.class, mappedBy = "lector", fetch = FetchType.EAGER)
+	private List<Prestamo> prestamos = new ArrayList<Prestamo>();
+	
+	public Lector(String nombre, String telefono,String direccion) {
 		super();
-		this.nSocio = nSocio;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.multas = null;
 
+	}
+	public Lector() {
+		super();
 	}
 
 	public String getNombre() {
@@ -35,7 +68,7 @@ public class Lector {
 	}
 
 
-	public int getnSocio() {
+	public long getnSocio() {
 		return nSocio;
 	}
 
@@ -59,10 +92,13 @@ public class Lector {
 		this.direccion = direccion;
 	}
 
-	public ArrayList<Prestamo> getPrestamos() {
+
+	public List<Prestamo> getPrestamos() {
 		return prestamos;
 	}
-
+	public void setPrestamos(List<Prestamo> prestamos) {
+		this.prestamos = prestamos;
+	}
 	public void setPrestamos(ArrayList<Prestamo> prestamos) {
 		this.prestamos = prestamos;
 	}
@@ -104,20 +140,19 @@ public class Lector {
 		this.multas = multas;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
 		result = prime * result + ((multas == null) ? 0 : multas.hashCode());
-		result = prime * result + nSocio;
+		result = prime * result + (int) (nSocio ^ (nSocio >>> 32));
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((prestamos == null) ? 0 : prestamos.hashCode());
 		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
 		return result;
 	}
-
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -156,7 +191,6 @@ public class Lector {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "Lector [nSocio=" + nSocio + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion

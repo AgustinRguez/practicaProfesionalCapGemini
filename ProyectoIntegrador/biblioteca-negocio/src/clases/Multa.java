@@ -6,20 +6,48 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+
+import javax.persistence.Id;
+
+@Entity
 public class Multa {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="multaId")
+	private long Id;
+	@Column
 	private Date fechaInicio;
+	@Column
 	private Date fechaFinal;
-	private Lector lectorDeMulta;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "nSocio")
+	private Lector lector;
+	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 	
 	public Multa(Date fechaInicio,Date fechaFinal,Lector multaLector) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFinal = fechaFinal;
-		this.lectorDeMulta = multaLector;
+		this.lector = multaLector;
 	}
+	
 	public Multa(Date fInicio, int dias) throws ParseException {
 		this.fechaInicio = fInicio;
 		this.fechaFinal = sumarDiasFecha(fInicio, dias);
+	}
+	
+	public Multa() {
+		super();
 	}
 	public Date getFechaInicio() {
 		return fechaInicio;
@@ -35,13 +63,12 @@ public class Multa {
 	}
 
 	public Lector getLectorDeMulta() {
-		return lectorDeMulta;
+		return lector;
 	}
 
 	public void setLectorDeMulta(Lector lectorDeMulta) {
-		this.lectorDeMulta = lectorDeMulta;
+		this.lector= lectorDeMulta;
 	}
-	
 	public int diasDif(Date inicio, Date fin) {
 	    long startTime = inicio.getTime();
 	    long endTime = fin.getTime();
@@ -53,11 +80,11 @@ public class Multa {
 
 	      Calendar calendar = Calendar.getInstance();
 
-	      calendar.setTime(fecha); // Configuramos la fecha que se recibe
+	      calendar.setTime(fecha); 
 
-	      calendar.add(Calendar.DAY_OF_YEAR, dias);  // numero de días a añadir, o restar en caso de días<0
+	      calendar.add(Calendar.DAY_OF_YEAR, dias); 
 
 	      String tmp = dateFormat.format(calendar.getTime());  
 	      return dateFormat.parse(tmp);
-	 }
+	 }	
 }
