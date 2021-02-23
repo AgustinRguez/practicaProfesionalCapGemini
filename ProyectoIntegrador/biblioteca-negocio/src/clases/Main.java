@@ -128,41 +128,10 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------------------------------");
 		bibliotecaDeCopias.obtenerPrestamosDeLectores();  */
 		
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		
-		Lector lectorUno = new Lector();
-		
-		Autor autorUno = new Autor();
-		
-		Libro libroUno = new Libro();
-		
 		Copia copiaUno = new Copia();
 
-		
-		Date fechaInicioMulta = dateFormat.parse("10-02-2009");
-		Date fechaFinalMulta = dateFormat.parse("10-03-2009");
-		Date nacimientoParaAutor = dateFormat.parse("19-06-1996");
-		
-		lectorUno.setNombre("Agustin");
-		lectorUno.setTelefono("42087402");
-		lectorUno.setDireccion("calle falsa 123");
-		
-		autorUno.setFechaNac(nacimientoParaAutor);
-		autorUno.setNacionalidad("Argentina");
-		autorUno.setNombre("Luis Alberto");
-		autorUno.setLibros(libroUno);
-		
-		
-		libroUno.setAnyo(2009);
-		libroUno.setAutor(autorUno);
-		libroUno.setEditorial("Editorial cualquiera");
-		libroUno.setTipo(tipoLibro.ENSAYO);
-		libroUno.setTitulo("El señor de los titulos");
-		
 		copiaUno.setEstado(EstadoCopia.BIBLIOTECA);
-		
-		
+				
 		EntityManagerFactory miFactory = Persistence.createEntityManagerFactory("ejsHibernate");
 		EntityManager manager = miFactory.createEntityManager();
 		EntityTransaction tran = manager.getTransaction();
