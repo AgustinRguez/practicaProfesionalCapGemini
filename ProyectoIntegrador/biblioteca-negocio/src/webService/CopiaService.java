@@ -3,6 +3,7 @@ package webService;
 import java.util.ArrayList;
 
 import clases.Copia;
+import clases.Lector;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
@@ -22,6 +23,18 @@ public class CopiaService {
 		return true;
 		
 	}
+	@WebMethod(operationName = "agregarLectorWS")
+	public boolean agregarLector(@WebParam(name = "lector")Lector lectorParam) {
+		CopiaDAO lectorDaoAtr = new CopiaDAO();
+		try {
+			lectorDaoAtr.agregarCopia(lectorParam);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
+	}
 
 	@WebMethod(operationName = "obtenerCopiasWS")
 	public ArrayList<Copia> obtenerCopias(){
@@ -34,5 +47,18 @@ public class CopiaService {
 			return null;
 		}
 		return copias;
+	}
+	
+	@WebMethod(operationName = "obtenerLectoresWS")
+	public ArrayList<Lector> obtenerLectores(){
+		CopiaDAO lectorDaoAtr = new CopiaDAO();
+		ArrayList<Lector> arrayLector = new ArrayList<Lector>();
+		try {
+			arrayLector = lectorDaoAtr.consultarLectores();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return arrayLector;
 	}
 }

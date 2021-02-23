@@ -131,25 +131,36 @@ public class Main {
 		bibliotecaDeCopias.obtenerPrestamosDeLectores();  */
 		
 		Copia copiaUno = new Copia();
-
+		Lector lectorUno = new Lector();
+				
 		copiaUno.setEstado(EstadoCopia.BIBLIOTECA);
 				
+		lectorUno.setNombre("Agustin");
+		lectorUno.setTelefono("42087402");
+		lectorUno.setDireccion("calle falsa");
+		
 		EntityManagerFactory miFactory = Persistence.createEntityManagerFactory("ejsHibernate");
 		EntityManager manager = miFactory.createEntityManager();
 		EntityTransaction tran = manager.getTransaction();
 		tran.begin();
 		manager.persist(copiaUno);
+		manager.persist(lectorUno);
 		tran.commit();
 		//manager.close();
 		
-		//bibliotecaDeCopias.stockDeCopias();
+		//-----------------------------------------------------------------------------------------
 		
 		List<Copia> copiaList = manager.createQuery("FROM Copia").getResultList(); //hacer un select
 		for (Copia copias : copiaList) {
 			System.out.println("\nEsta " +copias.toString()); 
+			//manager.close();	
+	}
+		List<Lector> lectorList = manager.createQuery("FROM Lector").getResultList(); //hacer un select
+		for (Lector lectores : lectorList) {
+			System.out.println("\nEsta " +lectores.toString()); 
 			manager.close();	
 	}
-		Endpoint endPoint = Endpoint.publish("http://localhost:8111/CopiaService", new CopiaService());
+		Endpoint endPoint = Endpoint.publish("http://localhost:8300/CopiaService", new CopiaService());
 	}
 
 }

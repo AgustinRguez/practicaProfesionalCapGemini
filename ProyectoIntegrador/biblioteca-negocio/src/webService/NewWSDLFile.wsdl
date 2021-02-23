@@ -4,33 +4,62 @@
 <definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://webService/" name="CopiaServiceService">
 <types>
 <xsd:schema>
-<xsd:import namespace="http://webService/" schemaLocation="http://localhost:8111/CopiaService?xsd=1"/>
+<xsd:import namespace="http://webService/" schemaLocation="http://localhost:8300/CopiaService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="obtenerCopiasWS">
-<part name="parameters" element="tns:obtenerCopiasWS"/>
-</message>
-<message name="obtenerCopiasWSResponse">
-<part name="parameters" element="tns:obtenerCopiasWSResponse"/>
-</message>
 <message name="agregarCopiasWS">
 <part name="parameters" element="tns:agregarCopiasWS"/>
 </message>
 <message name="agregarCopiasWSResponse">
 <part name="parameters" element="tns:agregarCopiasWSResponse"/>
 </message>
+<message name="obtenerCopiasWS">
+<part name="parameters" element="tns:obtenerCopiasWS"/>
+</message>
+<message name="obtenerCopiasWSResponse">
+<part name="parameters" element="tns:obtenerCopiasWSResponse"/>
+</message>
+<message name="obtenerLectoresWS">
+<part name="parameters" element="tns:obtenerLectoresWS"/>
+</message>
+<message name="obtenerLectoresWSResponse">
+<part name="parameters" element="tns:obtenerLectoresWSResponse"/>
+</message>
+<message name="agregarLectorWS">
+<part name="parameters" element="tns:agregarLectorWS"/>
+</message>
+<message name="agregarLectorWSResponse">
+<part name="parameters" element="tns:agregarLectorWSResponse"/>
+</message>
 <portType name="CopiaService">
-<operation name="obtenerCopiasWS">
-<input wsam:Action="http://webService/CopiaService/obtenerCopiasWSRequest" message="tns:obtenerCopiasWS"/>
-<output wsam:Action="http://webService/CopiaService/obtenerCopiasWSResponse" message="tns:obtenerCopiasWSResponse"/>
-</operation>
 <operation name="agregarCopiasWS">
 <input wsam:Action="http://webService/CopiaService/agregarCopiasWSRequest" message="tns:agregarCopiasWS"/>
 <output wsam:Action="http://webService/CopiaService/agregarCopiasWSResponse" message="tns:agregarCopiasWSResponse"/>
 </operation>
+<operation name="obtenerCopiasWS">
+<input wsam:Action="http://webService/CopiaService/obtenerCopiasWSRequest" message="tns:obtenerCopiasWS"/>
+<output wsam:Action="http://webService/CopiaService/obtenerCopiasWSResponse" message="tns:obtenerCopiasWSResponse"/>
+</operation>
+<operation name="obtenerLectoresWS">
+<input wsam:Action="http://webService/CopiaService/obtenerLectoresWSRequest" message="tns:obtenerLectoresWS"/>
+<output wsam:Action="http://webService/CopiaService/obtenerLectoresWSResponse" message="tns:obtenerLectoresWSResponse"/>
+</operation>
+<operation name="agregarLectorWS">
+<input wsam:Action="http://webService/CopiaService/agregarLectorWSRequest" message="tns:agregarLectorWS"/>
+<output wsam:Action="http://webService/CopiaService/agregarLectorWSResponse" message="tns:agregarLectorWSResponse"/>
+</operation>
 </portType>
 <binding name="CopiaServicePortBinding" type="tns:CopiaService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="agregarCopiasWS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="obtenerCopiasWS">
 <soap:operation soapAction=""/>
 <input>
@@ -40,7 +69,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="agregarCopiasWS">
+<operation name="obtenerLectoresWS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="agregarLectorWS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -52,7 +90,7 @@
 </binding>
 <service name="CopiaServiceService">
 <port name="CopiaServicePort" binding="tns:CopiaServicePortBinding">
-<soap:address location="http://localhost:8111/CopiaService"/>
+<soap:address location="http://localhost:8300/CopiaService"/>
 </port>
 </service>
 </definitions>

@@ -88,14 +88,14 @@ public class ListaDeLaBiblioteca<T> {
 		copiasB.clear();
 		copiasB.addAll(arrayCopia);
 	}
-	public void alquilarLibro(int idLector, int id)  {
+	/*public void alquilarLibro(int idLector, int id)  {
 		Lector lectorAux = buscarLectorPorId(lectorB, idLector);
 		if(lectorAux.prestar(idLector, new Date())) {
 			lectorAux.agregarPrestamos(new Prestamo(buscarCopiaPorId(copiasB, id)));
 			modificarEstadoDeCopia(id, EstadoCopia.PRESTADO);	
 		}
 		
-	}
+	}*/
 	public ArrayList<Copia> stockDeCopias() {
 		Copia auxiliarCopia=null;
 		ArrayList<Copia> arrayCopias = new ArrayList<Copia>();

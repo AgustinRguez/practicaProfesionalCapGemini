@@ -20,25 +20,32 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
-
+@Entity
+@Table (name = "lector")
 public class Lector implements Serializable{
 	private static final long serialVersionUID = -4202799706091486525L;
+	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
+	@Column (name = "nSocio")
 	private long nSocio;
+	@Column (name = "Nombre")
 	private String nombre;
+	@Column (name = "Telefono")
 	private String telefono;
+	@Column (name = "Direccion")
 	private String direccion;
-	private Multa multas;
+	//private Multa multas;
 	
-	private List<Prestamo> prestamos = new ArrayList<Prestamo>();
+	//private List<Prestamo> prestamos = new ArrayList<Prestamo>();
 	
-	public Lector(String nombre, String telefono,String direccion) {
+	/*public Lector(String nombre, String telefono,String direccion) {
 		super();
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.multas = null;
 
-	}
+	}*/
 	public Lector() {
 		super();
 	}
@@ -78,7 +85,7 @@ public class Lector implements Serializable{
 	}
 
 
-	public List<Prestamo> getPrestamos() {
+	/*public List<Prestamo> getPrestamos() {
 		return prestamos;
 	}
 	public void setPrestamos(List<Prestamo> prestamos) {
@@ -86,7 +93,7 @@ public class Lector implements Serializable{
 	}
 	public void setPrestamos(ArrayList<Prestamo> prestamos) {
 		this.prestamos = prestamos;
-	}
+	}*/
 
 	/*public void devolver (Copia copiaADevolver) {
 		Copia[] copiasTotales = null;
@@ -101,7 +108,7 @@ public class Lector implements Serializable{
 			}
 		}
 	}*/
-	public boolean prestar (int nSocioParam, Date fechaParaPrestar) {
+	/*public boolean prestar (int nSocioParam, Date fechaParaPrestar) {
 		boolean verificar = false;
 		if(multas == null && prestamos.size()<3) {
 			verificar = true;
@@ -111,8 +118,8 @@ public class Lector implements Serializable{
 			verificar = false;
 		}
 		return verificar;
-	}
-	@SuppressWarnings("unused")
+	}*/
+	/*@SuppressWarnings("unused")
 	private void multar() {
 		 this.multas = new Multa(new Date(),new Date(), null);  
 	}
@@ -180,7 +187,7 @@ public class Lector implements Serializable{
 	public String toString() {
 		return "Lector [nSocio=" + nSocio + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion
 				+ ", multas=" + multas + ", prestamos=" + prestamos + "]";
-	}
+	}*/
 
 	public int generarPrestamos() {
 		
@@ -192,7 +199,7 @@ public class Lector implements Serializable{
 		    	return -1;
 		    }
 		}
-	public void agregarPrestamos(Prestamo prestamoParam) {
+	/*public void agregarPrestamos(Prestamo prestamoParam) {
 		this.prestamos.add(prestamoParam);
 	}
 	
@@ -213,6 +220,54 @@ public class Lector implements Serializable{
 		}
 		this.prestamos.clear();
 		this.prestamos.addAll(listaPrestamo);
+	}*/
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + (int) (nSocio ^ (nSocio >>> 32));
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
+		return result;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Lector other = (Lector) obj;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (nSocio != other.nSocio)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (telefono == null) {
+			if (other.telefono != null)
+				return false;
+		} else if (!telefono.equals(other.telefono))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Lector [nSocio=" + nSocio + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion
+				+ "]";
+	}
+
+	
+	
 }

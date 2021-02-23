@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import clases.Copia;
+import clases.Lector;
 
 public class CopiaDAO {
 		EntityManagerFactory miFactory = Persistence.createEntityManagerFactory("ejsHibernate");
@@ -23,7 +24,14 @@ public class CopiaDAO {
 			tran.commit();
 			manager.close();
 		}
+		public void agregarCopia(Lector lectores) {
+					
+			tran.begin();
+			manager.persist(lectores);
 		
+			tran.commit();
+			manager.close();
+		}
 		public ArrayList<Copia> consultarCopias() {
 			ArrayList<Copia> copias = new ArrayList<Copia>();
 			javax.persistence.Query query = manager.createNamedQuery("FROM Copia");
@@ -37,5 +45,12 @@ public class CopiaDAO {
 				System.out.println("\nEsta " +copias.toString()); 
 				manager.close();*/
 		
-	
+		public ArrayList<Lector> consultarLectores() {
+			ArrayList<Lector> lector = new ArrayList<Lector>();
+			javax.persistence.Query query = manager.createNamedQuery("FROM Lector");
+			List resultado = query.getResultList();
+			lector.addAll(resultado);
+			return lector;
+			
+			}
 }
