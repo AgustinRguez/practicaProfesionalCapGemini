@@ -14,27 +14,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-
 public class Libro {
-	
 	private long Id;
-	
 	private String titulo;
-	
-	
 	private tipoLibro tipo;
-	
-	
 	private String editorial;
-	
-	
 	private int anyo;
-	
 	private Autor autor;
-	
 	private ArrayList<Copia> copias = new ArrayList<Copia>();
 	
-
 	public enum tipoLibro{
 		NOVELA("N"), TEATRO("T"), POESIA("P"), ENSAYO("E");
 

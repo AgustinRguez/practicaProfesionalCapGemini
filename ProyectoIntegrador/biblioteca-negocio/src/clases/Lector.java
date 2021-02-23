@@ -22,25 +22,12 @@ import javax.persistence.Table;
 
 
 public class Lector implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4202799706091486525L;
-
-	
 	private long nSocio;
-	
-	
 	private String nombre;
-	
-	
 	private String telefono;
-	
-
 	private String direccion;
-	
 	private Multa multas;
-	
 	
 	private List<Prestamo> prestamos = new ArrayList<Prestamo>();
 	

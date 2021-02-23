@@ -16,22 +16,11 @@ import javax.persistence.Table;
 
 public class Autor implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1304525234515458394L;
-	
 	private long id;
-	
 	private String nombre;
-	
-	
 	private String nacionalidad;
-	
-	
 	private Date fechaNac;
-	
-	
 	private List<Libro> libros= new ArrayList<Libro>();
 	
 	public Autor(String nombre, String nacionalidad, Date fechaNac) {

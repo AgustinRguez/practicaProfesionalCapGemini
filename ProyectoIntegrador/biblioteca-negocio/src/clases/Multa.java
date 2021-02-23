@@ -19,15 +19,9 @@ import javax.persistence.Id;
 
 
 public class Multa {
-	
-	
 	private long Id;
-	
 	private Date fechaInicio;
-	
 	private Date fechaFinal;
-	
-	
 	private Lector lector;
 	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

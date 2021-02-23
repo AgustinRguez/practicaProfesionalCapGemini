@@ -13,21 +13,13 @@ import javax.persistence.OneToOne;
 
 
 public class Prestamo {
-	
 	private long Id;
-	
 	private Date fechaInicio;
-	
 	private Date fechaFin;
-	
 	private Copia copias;
-	
 	private int maxDias=30;
-	
 	private Date diaSacado = new Date();
-	
 	private Lector lector;
-	
 	public Prestamo(Copia copias) {
 		super();
 		this.fechaInicio = diaSacado;
