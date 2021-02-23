@@ -1,5 +1,7 @@
 package webService;
 
+import java.util.ArrayList;
+
 import clases.Copia;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -19,5 +21,18 @@ public class CopiaService {
 		}
 		return true;
 		
+	}
+
+	@WebMethod(operationName = "obtenerCopiasWS")
+	public ArrayList<Copia> obtenerCopias(){
+		CopiaDAO copiaDaoAtr = new CopiaDAO();
+		ArrayList<Copia> copias = new ArrayList<Copia>();
+		try {
+			copias = copiaDaoAtr.consultarCopias();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return copias;
 	}
 }

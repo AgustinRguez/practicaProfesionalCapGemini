@@ -24,16 +24,18 @@ public class CopiaDAO {
 			manager.close();
 		}
 		
-		public List<Copia> consultarCopias() {
-			List<Copia> copia = manager.createQuery("FROM Copia").getResultList();
-			for(Copia copiaList : copia) {
-				System.out.println("\nEsta " + copia.toString());
+		public ArrayList<Copia> consultarCopias() {
+			ArrayList<Copia> copias = new ArrayList<Copia>();
+			javax.persistence.Query query = manager.createNamedQuery("FROM Copia");
+			List resultado = query.getResultList();
+			copias.addAll(resultado);
+			return copias;
+			
 			}
-			return copia;
 			/*List<Copia> copiaList = manager.createQuery("FROM Copia").getResultList(); //hacer un select
 			for (Copia copias : copiaList) {
 				System.out.println("\nEsta " +copias.toString()); 
 				manager.close();*/
-		}
+		
 	
 }
