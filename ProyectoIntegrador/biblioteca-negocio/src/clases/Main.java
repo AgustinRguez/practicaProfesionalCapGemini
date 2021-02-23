@@ -15,6 +15,8 @@ import javax.persistence.Persistence;
 
 import clases.Copia.EstadoCopia;
 import clases.Libro.tipoLibro;
+import jakarta.xml.ws.Endpoint;
+import webService.CopiaService;
 
 
 public class Main {
@@ -140,15 +142,14 @@ public class Main {
 		tran.commit();
 		//manager.close();
 		
-		bibliotecaDeCopias.stockDeCopias();
+		//bibliotecaDeCopias.stockDeCopias();
 		
 		List<Copia> copiaList = manager.createQuery("FROM Copia").getResultList(); //hacer un select
 		for (Copia copias : copiaList) {
 			System.out.println("\nEsta " +copias.toString()); 
-			manager.close();
-			
+			manager.close();	
 	}
-		
+		Endpoint endPoint = Endpoint.publish("http://localhost:8100/CopiaService", new CopiaService());
 	}
 
 }
